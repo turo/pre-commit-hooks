@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -e
+
+KUSTOMIZE_DIRS=$(find . -type f -name '*kustomization.yaml' | sed -E 's|/[^/]+$||' |sort -u )
+COLOR_GREEN="\x1b[32;01m"
+COLOR_YELLOW="\x1b[33;01m"
+COLOR_RED="\x1b[31;01m"
+COLOR_RESET="\x1b[39;49;00m"
+
+FAILED=0
+IFS=$'\n'
+echo "test: kustomize build"
+for item in $KUSTOMIZE_DIRS
+do
+  echo -e $COLOR_YELLOW"[START] kustomize build $item"$COLOR_RESET
+  time kustomize build $item && echo -e $COLOR_GREEN"[PASS] kustomize build $item"$COLOR_RESET || echo -e $COLOR_RED"[FAILED] kustomize build $item"$COLOR_RESET && FAILED=1
+done
+
+exit $FAILED
