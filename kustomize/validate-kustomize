@@ -13,7 +13,15 @@ echo "test: kustomize build"
 for item in $KUSTOMIZE_DIRS
 do
   echo -e $COLOR_YELLOW"[START] kustomize build $item"$COLOR_RESET
-  time kustomize build $item && echo -e $COLOR_GREEN"[PASS] kustomize build $item"$COLOR_RESET || echo -e $COLOR_RED"[FAILED] kustomize build $item"$COLOR_RESET && FAILED=1
+  item_failed=0
+  CMD_OUT=$(kustomize build $item) || item_failed=1
+  if [ $item_failed = "1" ]; then
+    FAILED=1
+    echo -e $COLOR_RED"$CMD_OUT"$COLOR_RESET
+    echo -e $COLOR_RED"[FAILED] kustomize build $item"$COLOR_RESET
+  else
+    echo -e $COLOR_GREEN"[PASS]  kustomize build $item"$COLOR_RESET
+  fi
 done
 
 exit $FAILED
