@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -e
+
+# script/setup: Set up application for the first time after cloning, or set it
+#               back to the initial first unused state.
+
+# Bash color variables
+COLOR_GREEN="\x1b[32;01m"
+COLOR_RED="\x1b[31;01m"
+COLOR_YELLOW="\x1b[33;01m"
+COLOR_WHITE="\x1b[97;01m"
+COLOR_RESET="\x1b[39;49;00m"
+
+set -e
+
+script/bootstrap
+
+cd "$(dirname "$0")/.."
+
+echo -e $COLOR_GREEN"✅  App is now ready to go!"$COLOR_RESET

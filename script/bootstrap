@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+
+set -e
+
+# A lot of this is borrowed from https://github.com/engageinteractive/laravel/blob/master/scripts/bootstrap
+
+# Bash color variables
+COLOR_GREEN="\x1b[32;01m"
+COLOR_RED="\x1b[31;01m"
+COLOR_YELLOW="\x1b[33;01m"
+COLOR_WHITE="\x1b[97;01m"
+COLOR_RESET="\x1b[39;49;00m"
+
+MINIMUM_KUSTOMIZE_VERSION=3.8
+
+# Check cli binary executes
+function executableCheck {
+    local EXE=$1
+    local NAME=$2
+    if [ "$EXE" == "0" ]; then
+        echo No \"${NAME}\" command found
+        exit 1
+    fi
+
+    # check if the command is executable
+    if [ ! -e ${EXE} ]; then
+        echo -e $COLOR_RED"ERROR"$COLOR_RESET" ${NAME} is installed but not executable"
+    fi
+}
+
+# Check version number meets requirements
+function versionCheck {
+    local VERSION=$1
+    local MINIMUM=$2
+    local SYSTEM=$3
+    local CHECK=`echo "$VERSION>=$MINIMUM" | bc -l`
+    if [ "$CHECK" == "0" ]; then
+        echo -e $COLOR_RED"ERROR"$COLOR_RESET" ${SYSTEM} version mismatch, please upgrade. Required version: $MINIMUM"
+        exit 1
+    fi
+}
+
+echo -e $COLOR_WHITE"🚀  Bootstrapping project..."$COLOR_RESET
+
+if [[ $CI != "true" ]]; then
+
+echo -e "🧩  "$COLOR_WHITE"Checking kustomize version"$COLOR_RESET
+
+    # validate Docker command and version
+    KUSTOMIZE_EXEC=$(/usr/bin/which kustomize || echo 0)
+    executableCheck ${KUSTOMIZE_EXEC} "kustomize"
+
+    KUSTOMIZE_VERSION=$(${KUSTOMIZE_EXEC} version --short | cut -f 2 -d'{' | cut -f 1 -d' ' | cut -f 1,2 -d '.');
+    versionCheck ${KUSTOMIZE_VERSION} ${MINIMUM_KUSTOMIZE_VERSION} "Kustomize"
+
+fi
+
+if [ -f "Brewfile" ] && [ "$(uname -s)" = "Darwin" ]; then
+  brew bundle check >/dev/null 2>&1  || {
+    echo -e  $COLOR_WHITE"🛠 Installing Homebrew dependencies…\n"$COLOR_RESET
+    brew bundle
+  }
+fi
+
+if [[ $CI != "true" ]]; then
+  echo -e $COLOR_WHITE"⚓  Setting up commit hooks"$COLOR_RESET
+  pre-commit install
+  pre-commit install --hook-type commit-msg
+fi
+
+echo -e $COLOR_GREEN"✅  Done\n"$COLOR_RESET

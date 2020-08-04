@@ -1,0 +1,7 @@
+# Intellij
+.idea/
+
+# Crash log files
+crash.log
+
+Brewfile.lock.json

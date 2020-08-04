@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Lint files in the branch
+pre-commit run --from-ref $(git merge-base HEAD origin/master) --to-ref $(git rev-parse HEAD)
+
+# Lint that all commit messages in the branch are correct
+pre-commit run --hook-stage commit-msg --from-ref $(git merge-base HEAD origin/master) --to-ref $(git rev-parse HEAD) --commit-msg-filename .git/COMMIT_EDITMSG
