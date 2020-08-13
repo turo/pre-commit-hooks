@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: some-config
+data:
+  key-2: two
+  key-3: three

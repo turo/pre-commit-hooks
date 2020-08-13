@@ -1,3 +1,16 @@
+*.egg-info
+*.py[co]
+.*.sw[a-z]
+.coverage
+.tox
+.venv.touch
+/.mypy_cache
+/.pytest_cache
+/venv*
+coverage-html
+dist
+.coverage
+
 # Intellij
 .idea/
 
@@ -5,3 +18,7 @@
 crash.log
 
 Brewfile.lock.json
+Pipfile.lock
+tests/__pycache__/
+testing/__pycache__/
+pre_commit_hooks/__pycache__/

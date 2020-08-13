@@ -5,3 +5,4 @@
   entry: ./kustomize/validate-kustomize
   args: []
   language: script
+  pass_filenames: false

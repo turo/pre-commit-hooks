@@ -1,0 +1,166 @@
+{
+  ".class": "MypyFile",
+  "_fullname": "tests.check_yaml_test",
+  "is_partial_stub_package": false,
+  "is_stub": false,
+  "names": {
+    ".class": "SymbolTable",
+    "__doc__": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "Var",
+        "flags": ["is_ready"],
+        "fullname": "tests.check_yaml_test.__doc__",
+        "name": "__doc__",
+        "type": "builtins.str"
+      }
+    },
+    "__file__": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "Var",
+        "flags": ["is_ready"],
+        "fullname": "tests.check_yaml_test.__file__",
+        "name": "__file__",
+        "type": "builtins.str"
+      }
+    },
+    "__name__": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "Var",
+        "flags": ["is_ready"],
+        "fullname": "tests.check_yaml_test.__name__",
+        "name": "__name__",
+        "type": "builtins.str"
+      }
+    },
+    "__package__": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "Var",
+        "flags": ["is_ready"],
+        "fullname": "tests.check_yaml_test.__package__",
+        "name": "__package__",
+        "type": "builtins.str"
+      }
+    },
+    "get_resource_path": {
+      ".class": "SymbolTableNode",
+      "cross_ref": "testing.util.get_resource_path",
+      "kind": "Gdef"
+    },
+    "main": {
+      ".class": "SymbolTableNode",
+      "cross_ref": "pre_commit_hooks.check_yaml.main",
+      "kind": "Gdef"
+    },
+    "pytest": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "Var",
+        "flags": ["is_suppressed_import", "is_ready"],
+        "fullname": "tests.check_yaml_test.pytest",
+        "name": "pytest",
+        "type": {
+          ".class": "AnyType",
+          "missing_import_name": "tests.check_yaml_test.pytest",
+          "source_any": null,
+          "type_of_any": 3
+        }
+      }
+    },
+    "test_fails_even_with_allow_multiple_documents": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "FuncDef",
+        "arg_kinds": [0],
+        "arg_names": ["tmpdir"],
+        "flags": [],
+        "fullname": "tests.check_yaml_test.test_fails_even_with_allow_multiple_documents",
+        "name": "test_fails_even_with_allow_multiple_documents",
+        "type": null
+      }
+    },
+    "test_main": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "Decorator",
+        "func": {
+          ".class": "FuncDef",
+          "arg_kinds": [0, 0],
+          "arg_names": ["filename", "expected_retval"],
+          "flags": ["is_decorated"],
+          "fullname": "tests.check_yaml_test.test_main",
+          "name": "test_main",
+          "type": null
+        },
+        "is_overload": false,
+        "var": {
+          ".class": "Var",
+          "flags": ["is_ready"],
+          "fullname": null,
+          "name": "test_main",
+          "type": {
+            ".class": "AnyType",
+            "missing_import_name": "tests.check_yaml_test.pytest",
+            "source_any": {
+              ".class": "AnyType",
+              "missing_import_name": "tests.check_yaml_test.pytest",
+              "source_any": null,
+              "type_of_any": 3
+            },
+            "type_of_any": 7
+          }
+        }
+      }
+    },
+    "test_main_allow_multiple_documents": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "FuncDef",
+        "arg_kinds": [0],
+        "arg_names": ["tmpdir"],
+        "flags": [],
+        "fullname": "tests.check_yaml_test.test_main_allow_multiple_documents",
+        "name": "test_main_allow_multiple_documents",
+        "type": null
+      }
+    },
+    "test_main_unsafe": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "FuncDef",
+        "arg_kinds": [0],
+        "arg_names": ["tmpdir"],
+        "flags": [],
+        "fullname": "tests.check_yaml_test.test_main_unsafe",
+        "name": "test_main_unsafe",
+        "type": null
+      }
+    },
+    "test_main_unsafe_still_fails_on_syntax_errors": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "FuncDef",
+        "arg_kinds": [0],
+        "arg_names": ["tmpdir"],
+        "flags": [],
+        "fullname": "tests.check_yaml_test.test_main_unsafe_still_fails_on_syntax_errors",
+        "name": "test_main_unsafe_still_fails_on_syntax_errors",
+        "type": null
+      }
+    }
+  },
+  "path": "tests/check_yaml_test.py"
+}
