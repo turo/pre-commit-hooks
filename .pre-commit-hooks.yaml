@@ -1,8 +1,0 @@
-- id: kustomize
-  name: kustomize
-  description: Run kustomize build on all directories containing kustomization
-  minimum_pre_commit_version: 2.1.0
-  entry: ./kustomize/validate-kustomize
-  args: []
-  language: script
-  pass_filenames: false
