@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  generic:
+    image: ${REGISTRY}/${SERVICE}:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: containers/${SERVICE}/Dockerfile
+      args:
+        registry: ${REGISTRY}
