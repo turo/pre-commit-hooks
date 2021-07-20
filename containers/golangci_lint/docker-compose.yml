@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+  generic:
+    build:
+      args:
+        - golangci_lint_version

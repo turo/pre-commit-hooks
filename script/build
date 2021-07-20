@@ -1,0 +1,58 @@
+#!/bin/dash
+
+# Set our registry as a constant... but allow override if needed
+export REGISTRY=${REGISTRY:-ghcr.io/turo/pre-commit-hooks}
+
+# Allow config output
+CMD="build"
+if [ "$1" = "config" ]; then
+    CMD="config"
+    shift
+fi
+
+# Build all the things
+if [ "$1" = "all" ]; then
+    ret=0
+    for name in containers/*; do
+        # Skip anything that's not a directory
+        if [ ! -d "$name" ]; then continue; fi
+        name="${name#containers/}"
+        echo "Building $name"
+        # Re-invoke this command to build
+        $0 "$name"
+        # Capture the exit code
+        ret=$(($? + ret))
+    done
+    exit $ret
+fi
+
+
+# Get the service name to build
+export SERVICE="$1"
+shift
+
+# Check that we have a service name defined
+if [ -z "$SERVICE" ]; then
+    echo "error: Missing service name"
+    exit 1
+fi
+
+if [ ! -d "containers/$SERVICE" ]; then
+    echo "error: Unknown service: $SERVICE"
+    exit 1
+fi
+
+# Extract the version to use for the the tag automatically
+VERSION=$(grep "^${SERVICE}_version" versions.env)
+VERSION="${VERSION#*=}"
+
+# Override the tag if we specified one
+export TAG="${1:-${VERSION:-latest}}"
+echo "Using tag: $TAG"
+
+# Use docker-compose compositing to build the image
+docker-compose \
+    --env-file "versions.env" \
+    -f "docker-compose.yml" \
+    -f "containers/${SERVICE}/docker-compose.yml" \
+    ${CMD}
