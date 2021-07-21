@@ -50,5 +50,6 @@ RUN chmod a+rwx /tmp && rm /bin/chmod /bin/rm
 #
 # Compress the minimal stage into a single layer to erase its history
 FROM scratch AS bin
+LABEL org.opencontainers.image.source https://github.com/turo/pre-commit-hooks
 COPY --from=minimal / /
 ENTRYPOINT ["/bin/dash"]
