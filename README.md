@@ -48,7 +48,7 @@ in this example, some of the hooks enabled would be redundant.
 ```yaml
 repos:
   - repo: https://github.com/turo/pre-commit-hooks
-    rev: main  # You may version pin this if desired
+    rev: v2.0.0  # You may version pin this if desired
     hooks:
     - id: go-test-unit
     - id: go-build
@@ -88,7 +88,7 @@ A typical `pre-commit-config.yaml` for a Golang project would look like this:
 ```yaml
 repos:
   - repo: https://github.com/turo/pre-commit-hooks
-    rev: main  # You may version pin this if desired
+    rev: v2.0.0  # You may version pin this if desired
     hooks:
     - id: go-mod-tidy  # Clean up go.mod
     - id: go-build  # Check compilation
