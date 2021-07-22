@@ -69,6 +69,8 @@ This repository provides a single source for commonly used hooks. Usage is via t
 
 The following hooks are available:
 
+**Go**
+
 - **golangci-lint** (_requires docker_) - Mega-meta-linter, contains all the
   other linters, may be slow to run the first time, but uses caching within the
   repository to speed up the container on subsequent runs. **This should be your
@@ -82,6 +84,12 @@ The following hooks are available:
 - **go-mod-tidy** (_requires golang_) - Clean up `go.mod` and `go.sum`
 - **go-vet** (_requires golang_) - Additional checks not performed by compilation
 - **go-fmt** (_requires golang_) - Original style formatter, local version
+
+**Docker**
+
+- **docker-lint** (_requires docker_) - Runs hadolint on Dockerfiles
+- **docker-compose-lint** (_requires docker_) - Runs docker-compose config on
+compose files
 
 ### Example
 
