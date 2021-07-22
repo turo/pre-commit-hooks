@@ -59,6 +59,8 @@ repos:
     - id: goimports
     - id: gofmt
     - id: golangci-lint
+    - id: docker-lint
+    - id: docker-compose-lint
 ```
 
 ## Usage
