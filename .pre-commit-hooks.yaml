@@ -4,7 +4,7 @@
   description: Runs hadolint Docker image to lint Dockerfiles
   language: docker_image
   # TODO: Extract this into a shared image?
-  entry: hadolint/hadolint
+  entry: hadolint/hadolint hadolint
   files: Dockerfile(.[-_a-zA-Z0-9]+)*
 - id: docker-compose-lint
   name: "docker-compose: Check configuration"
