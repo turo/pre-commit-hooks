@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  generic:
+    build:
+      args:
+        - debian_version
+        - dash_version
+        - pre_commit_version
