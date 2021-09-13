@@ -54,5 +54,4 @@ main (){
     exit $ret
 }
 
-# lint "./..."
 main "$@"

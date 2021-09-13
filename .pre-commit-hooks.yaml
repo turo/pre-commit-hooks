@@ -1,3 +1,4 @@
+######################
 # Docker related hooks
 - id: docker-lint
   name: "hadolint: Dockerfile linting"
@@ -12,6 +13,7 @@
   language: docker_image
   entry: ghcr.io/turo/pre-commit-hooks/docker_compose:1.29.2
   files: docker-compose\.([-_a-zA-Z0-9]+\.)*y(a)?ml$
+######################
 # Golang related hooks
 # These run in a container and have no other dependencies
 - id: gocyclo
@@ -32,9 +34,9 @@
   entry: --entrypoint go-fmt.sh ghcr.io/turo/pre-commit-hooks/gotools:1.0.0
   language: docker_image
   files: '\.go$'
-- id: golangci-lint
-  name: "golangci-lint: Lint all the things"
-  description: "Runs `golangci-lint`, a meta-linter which comprises many others"
+- id: golangcilint
+  name: "golangcilint: Lint all the things (docker)"
+  description: "Runs `golangci-lint`, a meta-linter which comprises many others, in docker"
   entry: ghcr.io/turo/pre-commit-hooks/golangci_lint:1.41.1
   language: docker_image
   files: \.go$
@@ -69,3 +71,9 @@
   entry: hooks/golang/go-fmt.sh
   language: 'script'
   files: '\.go$'
+- id: golangci-lint
+  name: "golangci-lint: Lint all the things"
+  description: "Runs `golangci-lint`, a meta-linter which comprises many others"
+  entry: hooks/golang/golangci-lint.sh
+  language: script
+  files: \.go$
