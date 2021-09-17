@@ -13,7 +13,7 @@ open source projects.
 - [hadolint/hadolint](https://github.com/hadolint/hadolint) - [GPLv3](https://github.com/hadolint/hadolint/blob/master/LICENSE)
 - [fzipp/gocyclo](https://github.com/fzipp/gocyclo) - [BSD](https://github.com/fzipp/gocyclo/blob/main/LICENSE)
 - [dnephin/pre-commit-golang](https://github.com/dnephin/pre-commit-golang) - [MIT](https://github.com/dnephin/pre-commit-golang/blob/master/LICENSE)
-
+- [princjef/gomarkdoc](https://github.com/princjef/gomarkdoc)
 
 ## Installation
 
@@ -31,6 +31,7 @@ be installed](https://golang.org/doc/install) to run successfully:
 - go-mod-tidy
 - go-vet
 - go-fmt
+- gomarkdoc
 
 The remaining hooks all run in containers, so require [Docker
 installed](https://docs.docker.com/get-docker/) to run successfully:
@@ -55,6 +56,7 @@ repos:
     - id: go-mod-tidy
     - id: go-vet
     - id: go-fmt
+    - id: gomarkdoc
     - id: gocyclo
     - id: goimports
     - id: gofmt
@@ -84,6 +86,7 @@ The following hooks are available:
 - **go-mod-tidy** (_requires golang_) - Clean up `go.mod` and `go.sum`
 - **go-vet** (_requires golang_) - Additional checks not performed by compilation
 - **go-fmt** (_requires golang_) - Original style formatter, local version
+- **gomarkdoc** (_requires golang, gomarkdoc_) - Generate documentation from packages
 
 **Docker**
 
@@ -104,6 +107,7 @@ repos:
     - id: go-build  # Check compilation
     - id: golangci-lint  # Lint everything
     - id: go-test-unit  # Run unit tests
+    - id: gomarkdoc  # Generate documenation
 ```
 
 ## Contributing
@@ -166,4 +170,4 @@ For changes, see the
 - https://medium.com/analytics-vidhya/dockerizing-a-rest-api-in-python-less-than-9-mb-and-based-on-scratch-image-ef0ee3ad3f0a
 - https://goinbigdata.com/goimports-vs-gofmt/
 - https://github.com/JonathonReinhart/staticx
- 
+
