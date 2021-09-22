@@ -9,12 +9,13 @@ GITHUB_SERVER_URL="${GITHUB_SERVER_URL:-https://github.com}"
 # We switch behavior if we're running on GitHub Actions because we can't
 # autodetect the GitHub remote URI correctly
 if [ -n "$GITHUB_REPOSITORY" ]; then
+    echo "DEBUG Using environment repository"
     # Trim trailing slash if it's present
     GITHUB_REPOSITORY="${GITHUB_REPOSITORY%%/}"
     # Build the CLI arg for manually setting the repo
-    REPOSITORY="--repository.url ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}"
+    REPOSITORY="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}"
+    echo "DEBUG REPOSITORY=${REPOSITORY}"
+    ARG_REPO="--repository.url"
 fi
 
-# shellcheck disable=SC2086
-output="$(gomarkdoc --output '{{.Dir}}/README.md' $REPOSITORY ./...)"
-[ -z "$output" ]
+gomarkdoc --output '{{.Dir}}/README.md' "$ARG_REPO" "$REPOSITORY" -vv ./...
