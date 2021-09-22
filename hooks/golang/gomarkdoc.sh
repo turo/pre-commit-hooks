@@ -16,6 +16,9 @@ if [ -n "$GITHUB_REPOSITORY" ]; then
     REPOSITORY="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}"
     echo "DEBUG REPOSITORY=${REPOSITORY}"
     ARG_REPO="--repository.url"
+    # Configure the default branch
+    BRANCH="${GITHUB_DEFAULT_BRANCH:-main}"
+    ARG_BRANCH="--repository.default-branch"
 fi
 
-gomarkdoc --output '{{.Dir}}/README.md' "$ARG_REPO" "$REPOSITORY" -vv ./...
+gomarkdoc --output '{{.Dir}}/README.md' "$ARG_BRANCH" "$BRANCH" "$ARG_REPO" "$REPOSITORY" -vv ./...
