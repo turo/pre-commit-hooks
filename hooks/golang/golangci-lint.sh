@@ -8,7 +8,6 @@ lint_all () {
         --out-format colored-line-number \
         --color always \
         --enable asciicheck \
-        --enable deadcode \
         --enable durationcheck \
         --enable errcheck \
         --enable exportloopref \
