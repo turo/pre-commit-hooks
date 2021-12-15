@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Bash color variables
+COLOR_GREEN="\x1b[32;01m"
+COLOR_RESET="\x1b[39;49;00m"
+
+echo -e "🚀  Bootstrapping project..."$COLOR_RESET
+
+if [[ $CI != "true" ]]; then
+  echo -e "⚓  Setting up commit hooks"
+  pre-commit install
+  pre-commit install --hook-type commit-msg
+fi
+
+echo -e $COLOR_GREEN"✅  Done\n"$COLOR_RESE
