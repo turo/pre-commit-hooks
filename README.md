@@ -79,8 +79,6 @@ The following hooks are available:
   preferred Golang linter unless its just plain too slow.**
 - **golangcilint** (_requires docker_) - Same as golangci-lint, but runs in a
   docker container.
-- **golangci-lint-mod** (_requires golang, golangci-lint_) - Same as golangci-lint, but runs against
-  the go module each file belongs to instead of linting individual files.
 - **gocyclo** (_requires docker_) - Cyclomatic complexity checker
 - **goimports** (_requres docker_) - Superceded `go fmt` as the Go style formatter
 - **gofmt** (_requires docker_) - Original Go style formatter, a bit more relaxed
