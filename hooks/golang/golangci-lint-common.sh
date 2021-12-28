@@ -8,6 +8,7 @@ lint_all() {
     --out-format colored-line-number \
     --color always \
     --enable asciicheck \
+    --enable deadcode \
     --enable durationcheck \
     --enable errcheck \
     --enable exportloopref \
@@ -38,7 +39,7 @@ lint_all() {
     --enable wastedassign \
     --enable whitespace \
     --enable wrapcheck \
-    "$@"
+    ./...
   return $?
 }
 
