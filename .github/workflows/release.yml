@@ -1,0 +1,15 @@
+name: Release
+# Only release when we merge to main
+on:
+  push:
+    branches: [main]
+# Handle release versioning automatically with semantic release
+jobs:
+  semantic-release:
+    name: Semantic Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: go-semantic-release/action@v1
+        with:
+          github-token: ${{ secrets.ROLLSBOT_GITHUB_ACTIONS_TOKEN }}
