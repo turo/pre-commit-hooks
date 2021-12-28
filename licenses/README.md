@@ -13,4 +13,3 @@ The following projects' licenses are linked in their current form here.
 - [hadolint/hadolint](https://github.com/hadolint/hadolint) - [GPLv3](https://github.com/hadolint/hadolint/blob/master/LICENSE)
 - [fzipp/gocyclo](https://github.com/fzipp/gocyclo) - [BSD](https://github.com/fzipp/gocyclo/blob/main/LICENSE)
 - [dnephin/pre-commit-golang](https://github.com/dnephin/pre-commit-golang) - [MIT](https://github.com/dnephin/pre-commit-golang/blob/master/LICENSE)
-

@@ -4,14 +4,9 @@
 
 # Run golangci-lint in each of the passed files
 main (){
-    ret=0
-    for file in "$@"; do
-        echo
-        echo "Linting: $file"
-        lint_all "$file"
-        ret=$(($? + ret))
-    done
-    exit $ret
+    echo "Linting: all"
+    lint_all
+    exit $?
 }
 
 main "$@"
