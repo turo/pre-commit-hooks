@@ -10,11 +10,6 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    env:
-      ATLAS_TOKEN: ${{ secrets.TERRAFORM_ENTERPRISE_ATLAS_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
-      CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
     steps:
       - uses: actions/checkout@v2
         with:
