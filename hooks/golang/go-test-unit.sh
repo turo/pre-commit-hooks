@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-FILES=$(go list ./...  | grep -v /vendor/)
+FILES=$(go list ./...  | grep -v -e /vendor/ -e /node_modules/)
 
 # We don't use build tags commonly enough, so we're just going to run all tests
 # locally and let the tests use environment flags to run integration tests.
