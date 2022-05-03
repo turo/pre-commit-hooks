@@ -17,3 +17,10 @@ repos:
           - --autofix
       - id: end-of-file-fixer
       - id: trailing-whitespace
+  - repo: local
+    hooks:
+      - id: yaml-extension
+        name: "Ensure yaml files use .yaml"
+        entry: ./hooks/yaml/yaml-extension.sh
+        language: script
+        files: \.yml$
