@@ -53,6 +53,6 @@ echo "Using tag: $TAG"
 # Use docker-compose compositing to build the image
 docker-compose \
     --env-file "versions.env" \
-    -f "docker-compose.yml" \
-    -f "containers/${SERVICE}/docker-compose.yml" \
+    -f "docker-compose.yaml" \
+    -f "containers/${SERVICE}/docker-compose.yaml" \
     ${CMD}

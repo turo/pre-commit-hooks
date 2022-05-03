@@ -84,3 +84,12 @@
   entry: hooks/golang/gomarkdoc.sh
   language: script
   files: \.go$
+######################
+# Yaml related hooks
+# These only have shell dependencies
+- id: yaml-extension
+  name: "Ensure yaml files use .yaml"
+  description: "Errors if there are .yml files"
+  entry: hooks/yaml/yaml-extension.sh
+  language: script
+  files: \.yml$
