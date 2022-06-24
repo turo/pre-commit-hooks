@@ -93,8 +93,15 @@ The following hooks are available:
 **Docker**
 
 - **docker-lint** (_requires docker_) - Runs hadolint on Dockerfiles
-- **docker-compose-lint** (_requires docker_) - Runs docker-compose config on
-compose files
+- **docker-compose-lint** (_requires docker_) - Runs docker-compose config on compose files
+
+**YAML**
+
+- **yaml-extension** - Verifies that yaml files have the right extension
+
+**Terraform**
+
+- **tf-sort** - Ensures tf file resources are alphabetically sorted (ascending a-z)
 
 ### Example
 

@@ -93,3 +93,12 @@
   entry: hooks/yaml/yaml-extension.sh
   language: script
   files: \.yml$
+######################
+# Terraform related hooks
+# These only have shell dependencies
+- id: tf-sort
+  name: "Ensure tf file is alphabetically sorted"
+  description: "Outputs an alphabetically sorted Terraform file"
+  entry: hooks/terraform/tf-sort.sh
+  language: script
+  files: \.tf$
