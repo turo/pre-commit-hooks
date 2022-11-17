@@ -3,6 +3,7 @@
 # We're using a large subset in addition to the defaults
 lint_all() {
   golangci-lint run \
+    --allow-parallel-runners \
     --fix \
     --verbose \
     --out-format colored-line-number \
