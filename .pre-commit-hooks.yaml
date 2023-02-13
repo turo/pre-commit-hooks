@@ -93,3 +93,11 @@
   entry: hooks/yaml/yaml-extension.sh
   language: script
   files: \.yml$
+  ######################
+# Yalc related hook - requires yalc to run
+- id: yalc-check
+  name: "Ensure no yalc dependencies are staged"
+  description: "Errors if there are staged yalc dependencies"
+  language: script
+  entry: hooks/yalc/yalc-check.sh
+  files: package\.json
