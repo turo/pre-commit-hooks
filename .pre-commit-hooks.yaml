@@ -94,7 +94,7 @@
   language: script
   files: \.yml$
   ######################
-# Yalc related hook - requires yalc to run
+# Yalc related hook
 - id: yalc-check
   name: "Ensure no yalc dependencies are staged"
   description: "Errors if there are staged yalc dependencies"
