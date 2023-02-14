@@ -1,9 +1,16 @@
 #!/bin/bash
-# Exits with status code 1 if a yalc dependency is present in the package manifest
+# Verifies no yalc dependency is present
 set -e
 
-for file in "$@" ; do
-    if egrep "(file|link):\.yalc" $file; then
-        exit 1
-    fi
-done
+check_files() {
+    has_error=0
+    for file in "$@" ; do
+        if egrep "(file|link):\.yalc" $file; then
+            echo "ERROR: $file should not have a yalc dependency"
+            has_error=1
+        fi
+    done
+}
+
+check_files "$@"
+exit $has_error
