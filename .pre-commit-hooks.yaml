@@ -85,6 +85,22 @@
   language: script
   files: \.go$
 ######################
+# OpenAPI related hooks
+- id: openapi-lint
+  name: "openapi-lint: Lint OpenAPI specifications"
+  description: Runs Spectral linting against OpenAPI specification files
+  args: [
+    lint,
+    spec/**/*.yaml,
+    --fail-severity=warn,
+    --ignore-unknown-format=true,
+  ]
+  entry: spectral
+  files: ^spec/
+  language: node
+  types: [yaml]
+  additional_dependencies: ["@stoplight/spectral-cli"]
+######################
 # Yaml related hooks
 # These only have shell dependencies
 - id: yaml-extension
