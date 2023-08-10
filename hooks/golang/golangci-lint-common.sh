@@ -14,6 +14,7 @@ lint_all() {
     --enable ineffassign \
     --enable staticcheck \
     --enable unused \
+    --timeout 2m \
     ./...
   return $?
 }
