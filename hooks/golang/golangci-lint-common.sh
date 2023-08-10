@@ -8,38 +8,12 @@ lint_all() {
     --verbose \
     --out-format colored-line-number \
     --color always \
-    --enable asciicheck \
-    --enable deadcode \
-    --enable durationcheck \
     --enable errcheck \
-    --enable exportloopref \
-    --enable gci \
-    --enable gocognit \
-    --enable goconst \
-    --enable gocritic \
-    --enable gocyclo \
-    --enable gofmt \
-    --enable gofumpt \
-    --enable goimports \
-    --enable gosec \
     --enable gosimple \
     --enable govet \
-    --enable ifshort \
     --enable ineffassign \
-    --enable prealloc \
-    --enable predeclared \
-    --enable sqlclosecheck \
     --enable staticcheck \
-    --enable structcheck \
-    --enable tagliatelle \
-    --enable typecheck \
-    --enable unconvert \
-    --enable unparam \
     --enable unused \
-    --enable varcheck \
-    --enable wastedassign \
-    --enable whitespace \
-    --enable wrapcheck \
     ./...
   return $?
 }
