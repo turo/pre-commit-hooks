@@ -2,7 +2,7 @@
 # There's a ton of available linters: https://golangci-lint.run/usage/linters
 # We're using a large subset in addition to the defaults
 lint_all() {
-  golangci-lint run \
+  GOGC=5 GOMEMLIMIT=1GiB golangci-lint run \
     --allow-parallel-runners \
     --fix \
     --verbose \
