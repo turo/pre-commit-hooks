@@ -8,10 +8,13 @@ on:
 # Handle release versioning automatically with semantic release
 jobs:
   semantic-release:
-    name: Semantic Release
+    name: Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: go-semantic-release/action@v1
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: open-turo/actions-release/semantic-release@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          extra-plugins: |
+            @open-turo/semantic-release-config
