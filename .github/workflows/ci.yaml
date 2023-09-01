@@ -2,17 +2,25 @@ name: CI
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-  workflow_dispatch:
 
 jobs:
+
+  release-notes:
+    name: Release notes preview
+    runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/main'
+    steps:
+      - uses: open-turo/actions-release/release-notes-preview@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          NPM_TOKEN: ${{ secrets.OPEN_TURO_NPM_TOKEN }}
+
   lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: pre-commit/action@v2.0.0
-      - uses: wagoid/commitlint-github-action@v2
+      - uses: open-turo/action-pre-commit@v1
