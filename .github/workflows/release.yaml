@@ -2,8 +2,9 @@ name: Release
 # Only release when we merge to main
 on:
   push:
-    branches: [main]
-  workflow_dispatch:
+    branches: [main, "[0-9]+.x"]
+  workflow_dispatch: # enable manual release
+
 # Handle release versioning automatically with semantic release
 jobs:
   semantic-release:
