@@ -37,7 +37,7 @@
 - id: golangcilint
   name: "golangcilint: Lint all the things (docker)"
   description: "Runs `golangci-lint`, a meta-linter which comprises many others, in docker"
-  entry: ghcr.io/turo/pre-commit-hooks/golangci_lint:1.43.0
+  entry: ghcr.io/turo/pre-commit-hooks/golangci_lint:1.54.2
   language: docker_image
   files: \.go$
 # Hooks that run locally only, and require golang
