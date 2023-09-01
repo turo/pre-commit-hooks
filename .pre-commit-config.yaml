@@ -6,7 +6,7 @@ repos:
       - id: commitlint
         language_version: system
         stages: [commit-msg]
-        additional_dependencies: ["@commitlint/config-conventional"]
+        additional_dependencies: ["@open-turo/commitlint-config-conventional"]
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.4.0 # Use the ref you want to point at
     hooks:
