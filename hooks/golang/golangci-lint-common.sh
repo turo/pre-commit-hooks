@@ -2,6 +2,10 @@
 # There's a ton of available linters: https://golangci-lint.run/usage/linters
 # We're using a large subset in addition to the defaults
 lint_all() {
+  ## Lets first report what version of golangi-lint is being run since it will
+  ## not otherwise provide that information.
+  golangci-lint --version
+
   golangci-lint run \
     --allow-parallel-runners \
     --fix \
