@@ -49,7 +49,7 @@ in this example, some of the hooks enabled would be redundant.
 ```yaml
 repos:
   - repo: https://github.com/turo/pre-commit-hooks
-    rev: v2.0.0  # You may version pin this if desired
+    rev: v3.0.0  # You may version pin this if desired
     hooks:
     - id: go-test-unit
     - id: go-build
@@ -103,7 +103,7 @@ A typical `pre-commit-config.yaml` for a Golang project would look like this:
 ```yaml
 repos:
   - repo: https://github.com/turo/pre-commit-hooks
-    rev: v2.0.0  # You may version pin this if desired
+    rev: v3.0.0  # You may version pin this if desired
     hooks:
     - id: go-mod-tidy  # Clean up go.mod
     - id: go-build  # Check compilation
@@ -111,6 +111,12 @@ repos:
     - id: go-test-unit  # Run unit tests
     - id: gomarkdoc  # Generate documenation
 ```
+
+## Updating hook versions
+
+The version of the hook, e.g. `golangci-lint`, that is actually used by this Action may be made available
+via instructions in the `packer-github-actions-general` GitHub repository. Thus, please refer to
+that repository to upgrade any specific hook version.
 
 ## Contributing
 
