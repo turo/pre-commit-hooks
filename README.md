@@ -23,11 +23,12 @@ This section tells you how to install.
 
 First you must have [pre-commit](https://pre-commit.com/) installed and configured.
 
-The pre-commit hooks which start with `go-` require that the [golang environment
+The pre-commit hooks in this section require that the [golang environment
 be installed](https://golang.org/doc/install) to run successfully:
 
 - go-test-unit
 - go-build
+- golangci-lint
 - go-mod-tidy
 - go-vet
 - go-fmt
@@ -39,7 +40,6 @@ installed](https://docs.docker.com/get-docker/) to run successfully:
 - gocyclo
 - goimports
 - gofmt
-- golangci-lint
 
 ### Hooks installation
 
@@ -49,7 +49,7 @@ in this example, some of the hooks enabled would be redundant.
 ```yaml
 repos:
   - repo: https://github.com/turo/pre-commit-hooks
-    rev: v3.0.0  # You may version pin this if desired
+    rev: v3.5.0  # You may version pin this if desired
     hooks:
     - id: go-test-unit
     - id: go-build
@@ -77,8 +77,6 @@ The following hooks are available:
   other linters, may be slow to run the first time, but uses caching within the
   repository to speed up the container on subsequent runs. **This should be your
   preferred Golang linter unless its just plain too slow.**
-- **golangcilint** (_requires docker_) - Same as golangci-lint, but runs in a
-  docker container.
 - **gocyclo** (_requires docker_) - Cyclomatic complexity checker
 - **goimports** (_requres docker_) - Superceded `go fmt` as the Go style formatter
 - **gofmt** (_requires docker_) - Original Go style formatter, a bit more relaxed
@@ -103,7 +101,7 @@ A typical `pre-commit-config.yaml` for a Golang project would look like this:
 ```yaml
 repos:
   - repo: https://github.com/turo/pre-commit-hooks
-    rev: v3.0.0  # You may version pin this if desired
+    rev: v3.5.0  # You may version pin this if desired
     hooks:
     - id: go-mod-tidy  # Clean up go.mod
     - id: go-build  # Check compilation
