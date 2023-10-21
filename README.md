@@ -94,6 +94,10 @@ The following hooks are available:
 - **docker-compose-lint** (_requires docker_) - Runs docker-compose config on
 compose files
 
+**OpenAPI**
+
+- **openapi-lint** - Runs Spectral linting against API specs.
+
 ### Example
 
 A typical `pre-commit-config.yaml` for a Golang project would look like this:
