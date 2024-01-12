@@ -95,3 +95,11 @@
   language: script
   entry: hooks/yalc/yalc-check.sh
   files: package\.json
+######################
+# Spell checking related hooks
+- id: cspell
+  name: "(TODO add name) Check spelling"
+  description: "(TODO add description) Check spelling"
+  language: script
+  entry: hooks/cspell/cspell.sh
+        
