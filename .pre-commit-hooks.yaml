@@ -98,8 +98,8 @@
 ######################
 # Spell checking related hooks
 - id: cspell
-  name: "(TODO add name) Check spelling"
-  description: "(TODO add description) Check spelling"
+  name: "Check for spelling errors with `cspell-cli`"
+  description: "Find and report spelling errors in staged files"
   language: script
   entry: hooks/cspell/cspell.sh
-        
+

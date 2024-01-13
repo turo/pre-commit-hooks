@@ -1,8 +1,4 @@
 #!/bin/bash
 set -e
 
-has_error=0
-
-echo "helloworld"
-
-exit $has_error
+git diff --name-only | npx cspell --no-summary --no-progress --no-must-find-files --file-list stdin
