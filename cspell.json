@@ -1,0 +1,12 @@
+{
+  "dictionaries": [
+    "cspell-dictionary"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "addWords": true,
+      "name": "cspell-dictionary",
+      "path": "./hooks/cspell/cspell-dictionary.txt"
+    }
+  ]
+}
