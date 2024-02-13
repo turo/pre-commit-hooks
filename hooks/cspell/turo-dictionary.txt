@@ -116,6 +116,7 @@ swipeable
 teamcity
 testcafe
 timeframe
+toggleable
 totalloss
 traveller
 turo
