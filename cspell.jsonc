@@ -9,10 +9,12 @@
     "css",
     "en-gb",
     "fonts",
+    "go",
     "html",
     "powershell",
     "node",
     "npm",
+    "python",
     "typescript"
   ],
   "dictionaryDefinitions": [
@@ -24,6 +26,14 @@
   ],
   "ignoreRegExpList": ["^.*TODO.*"],
   "ignorePaths": [
-    "./hooks/cspell/turo-dictionary.txt",
-  ],
+    "./.gitignore",
+    "./.pre-commit-hooks.yaml",
+    "./containers/**",
+    "./docs/**",
+    "./hooks/**",
+    "./licenses/**",
+    "./README.md",
+    "./script/**",
+    "./versions.env"
+]
 }
