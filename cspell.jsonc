@@ -5,16 +5,16 @@
   "caseSensitive": true,
   "dictionaries": [
     "bash",
-    "turo-dictionary",
     "css",
     "en-gb",
     "fonts",
     "go",
     "html",
-    "powershell",
     "node",
     "npm",
+    "powershell",
     "python",
+    "turo-dictionary",
     "typescript"
   ],
   "dictionaryDefinitions": [
@@ -35,5 +35,5 @@
     "./README.md",
     "./script/**",
     "./versions.env"
-]
+  ]
 }

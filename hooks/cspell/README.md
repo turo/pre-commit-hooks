@@ -5,17 +5,35 @@ This `hooks/cspell` directory is not an actual `pre-commit` hook to be reference
 ```json
 // cspell.jsonc
 {
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "allowCompoundWords": false,
+  "caseSensitive": true,
+  // https://cspell.org/docs/dictionaries/
   "dictionaries": [
-    "turo-dictionary"
+    "bash",
+    "css",
+    "en-gb",
+    "fonts",
+    "go",
+    "html",
+    "node",
+    "npm",
+    "powershell",
+    "python",
+    "turo-dictionary",
+    "typescript"
   ],
   "dictionaryDefinitions": [
     {
+      "addWords": true,
       "name": "turo-dictionary",
       // TODO (@michaeljaltamirano): Update path
       "path": "https://raw.githubusercontent.com/turo/pre-commit-hooks/spike/cspell-michael/hooks/cspell/turo-dictionary.txt",
-      "addWords": true
     }
   ],
+  "ignoreRegExpList": ["^.*TODO.*"],
+  "ignorePaths": ["./.gitignore"]
 }
 ```
 
