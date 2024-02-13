@@ -12,7 +12,7 @@ This `hooks/cspell` directory is not an actual `pre-commit` hook to be reference
     {
       "name": "turo-dictionary",
       // TODO (@michaeljaltamirano): Update path
-      "path": "https://raw.githubusercontent.com/turo/pre-commit-hooks/spike/testing-cspell-integration-michael/hooks/cspell/turo-dictionary.txt",
+      "path": "https://raw.githubusercontent.com/turo/pre-commit-hooks/spike/cspell-michael/hooks/cspell/turo-dictionary.txt",
       "addWords": true
     }
   ],
