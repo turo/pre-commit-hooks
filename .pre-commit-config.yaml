@@ -24,3 +24,7 @@ repos:
         entry: ./hooks/yaml/yaml-extension.sh
         language: script
         files: \.yml$
+  - repo: https://github.com/streetsidesoftware/cspell-cli
+    rev: v8.3.0
+    hooks:
+      - id: cspell

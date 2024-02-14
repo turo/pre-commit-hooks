@@ -4,26 +4,18 @@ on:
   push:
 
 jobs:
-
-  release-notes:
-    name: Release notes preview
-    runs-on: ubuntu-latest
-    if: github.ref != 'refs/heads/main'
-    steps:
-      - uses: open-turo/actions-release/release-notes-preview@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          NPM_TOKEN: ${{ secrets.OPEN_TURO_NPM_TOKEN }}
-
   lint:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: open-turo/action-pre-commit@v1
+      - name: Pre-commit
+        uses: open-turo/action-pre-commit@v1
+      - name: Check release notes on pull_request
+        if: github.event_name == 'pull_request'
+        uses: open-turo/actions-release/lint-release-notes@v4
 
   test:
     name: Test
