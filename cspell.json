@@ -1,0 +1,10 @@
+{
+  "dictionaryDefinitions": [
+    {
+      "name": "common",
+      "path": "./cspell/dictionaries/common.txt",
+      "addWords": true
+    }
+  ],
+  "dictionaries": ["common"]
+}

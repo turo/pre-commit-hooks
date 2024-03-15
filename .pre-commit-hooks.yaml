@@ -96,14 +96,8 @@
   entry: hooks/yalc/yalc-check.sh
   files: package\.json
 # CSpell hook
-- id: cspell
+- id: spell-check
   - repo: https://github.com/streetsidesoftware/cspell-cli
     rev: v8.3.0
     hooks:
       - id: spell-check
-    dictionaryDefinitions:
-      - name: common
-        path: ./cspell/dictionaries/common.txt
-        addWords: true
-    dictionaries:
-      - common
