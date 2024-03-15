@@ -100,7 +100,7 @@
   - repo: https://github.com/streetsidesoftware/cspell-cli
     rev: v8.3.0
     hooks:
-      - id: cspell
+      - id: spell-check
     dictionaryDefinitions:
       - name: common
         path: ./cspell/dictionaries/common.txt
