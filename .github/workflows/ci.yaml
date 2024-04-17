@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref != 'refs/heads/main'
     steps:
-      - uses: open-turo/actions-release/release-notes-preview@v2
+      - uses: open-turo/actions-release/lint-release-notes@v3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
