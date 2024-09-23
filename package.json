@@ -1,0 +1,18 @@
+{
+  "author": "Turo engineering <engineering@turo.com>",
+  "bin": {
+    "cspell-cli": "./hooks/cspell/index.js"
+  },
+  "dependencies": {
+    "cspell": "8.10.0"
+  },
+  "homepage": "https://github.com/turo/pre-commit-hooks#readme",
+  "name": "@turo/pre-commit-hooks",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/turo/pre-commit-hooks.git"
+  },
+  "type": "module",
+  "version": "4.0.0"
+}

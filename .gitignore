@@ -22,3 +22,5 @@ Pipfile.lock
 tests/__pycache__/
 testing/__pycache__/
 pre_commit_hooks/__pycache__/
+
+node_modules
