@@ -101,7 +101,6 @@
   name: cspell
   description: "Checks for spelling mistakes & typos"
   entry: cspell-cli
-  additional_dependencies: ["--userconfig=./.npmrc","--prefer-online","@turo/cspell@1"]
   language: node
   types: [text]
   args:

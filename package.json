@@ -4,6 +4,7 @@
     "cspell-cli": "./hooks/cspell/index.js"
   },
   "dependencies": {
+    "@turo/cspell": "1",
     "cspell": "8.10.0"
   },
   "homepage": "https://github.com/turo/pre-commit-hooks#readme",
