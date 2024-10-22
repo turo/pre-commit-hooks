@@ -95,3 +95,17 @@
   language: script
   entry: hooks/yalc/yalc-check.sh
   files: package\.json
+######################
+# Cspell hook
+- id: cspell
+  name: cspell
+  description: "Checks for spelling mistakes & typos"
+  entry: cspell-cli
+  language: node
+  types: [text]
+  args:
+    - --no-must-find-files
+    - --no-progress
+    - --no-summary
+    - --gitignore
+    - --files # this needs to be the last argument so that the paths are passed correctly.
