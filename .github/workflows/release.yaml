@@ -7,14 +7,22 @@ on:
 
 # Handle release versioning automatically with semantic release
 jobs:
-  semantic-release:
-    name: Release
+  release:
     runs-on: ubuntu-latest
+    name: Release
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - uses: open-turo/actions-release/semantic-release@v2
+      - uses: actions/create-github-app-token@v2
+        id: app-token
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          extra-plugins: |
-            @open-turo/semantic-release-config
+          app-id: ${{ secrets.TURO_GITHUB_WORKFLOWS_APP_ID }}
+          private-key: ${{ secrets.TURO_GITHUB_WORKFLOWS_APP_PRIVATE_KEY }}
+          # Creates a token for all the repositories in the current owner's (turo) installation
+          # See this for more information: https://github.com/actions/create-github-app-token?tab=readme-ov-file#create-a-token-for-all-repositories-in-the-current-owners-installation
+          owner: ${{ github.repository_owner }}
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Lint
+        uses: open-turo/action-pre-commit@v1
+      - uses: open-turo/actions-release/semantic-release@v3
+        with:
+          github-token: ${{ steps.app-token.outputs.token }}
