@@ -1,20 +1,21 @@
 name: CI
 
 on:
+  workflow_dispatch: {}
+  pull_request: {}
   push:
+    branches-ignore:
+      - main
 
 jobs:
 
   release-notes:
     name: Release notes preview
     runs-on: ubuntu-latest
-    if: github.ref != 'refs/heads/main'
     steps:
-      - uses: open-turo/actions-release/release-notes-preview@v2
+      - uses: open-turo/actions-release/lint-release-notes@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          NPM_TOKEN: ${{ secrets.OPEN_TURO_NPM_TOKEN }}
 
   lint:
     name: Lint
