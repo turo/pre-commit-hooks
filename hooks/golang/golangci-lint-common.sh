@@ -7,32 +7,49 @@ lint_all() {
   version_output=$(golangci-lint --version)
   echo "$version_output"
 
-  ## Extract semver number (e.g., 1.54.2 or 2.1.2)
-  version=$(echo "$version_output" | grep -oP 'version \K[0-9]+\.[0-9]+\.[0-9]+')
+  ## Extract major version number (e.g., 1 or 2)
+  major_version=$(echo "$version_output" | sed -n 's/.*version \([0-9]*\).*/\1/p')
 
-  ## Use correct format flag depending on version
-  if [ "$(printf '%s\n' "$version" "1.55.0" | sort -V | head -n1)" = "1.55.0" ]; then
-    # version >= 1.55.0 → use --format
-    format_flag="--format"
+  if [ "$major_version" = "2" ]; then
+    ## golangci-lint 2.x
+    ## - Default linters (errcheck, govet, ineffassign, staticcheck, unused) are enabled by default
+    ## - Output format flags changed to --color
+    golangci-lint run \
+      --allow-parallel-runners \
+      --fix \
+      --verbose \
+      --color always \
+      --timeout 5m \
+      ./...
   else
-    # version < 1.55.0 → use --out-format
-    format_flag="--out-format"
-  fi
+    ## golangci-lint 1.x
+    ## Extract full semver number for 1.x format flag detection
+    version=$(echo "$version_output" | sed -n 's/.*version \([0-9]*\.[0-9]*\.[0-9]*\).*/\1/p')
 
-  golangci-lint run \
-    --allow-parallel-runners \
-    --fix \
-    --verbose \
-    "$format_flag" colored-line-number \
-    --color always \
-    --enable errcheck \
-    --enable gosimple \
-    --enable govet \
-    --enable ineffassign \
-    --enable staticcheck \
-    --enable unused \
-    --timeout 5m \
-    ./...
+    ## Use correct format flag depending on version
+    if [ "$(printf '%s\n' "$version" "1.55.0" | sort -V | head -n1)" = "1.55.0" ]; then
+      # version >= 1.55.0 → use --format
+      format_flag="--format"
+    else
+      # version < 1.55.0 → use --out-format
+      format_flag="--out-format"
+    fi
+
+    golangci-lint run \
+      --allow-parallel-runners \
+      --fix \
+      --verbose \
+      "$format_flag" colored-line-number \
+      --color always \
+      --enable errcheck \
+      --enable gosimple \
+      --enable govet \
+      --enable ineffassign \
+      --enable staticcheck \
+      --enable unused \
+      --timeout 5m \
+      ./...
+  fi
   return $?
 }
 
