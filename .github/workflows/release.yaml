@@ -14,7 +14,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Lint
-        uses: open-turo/action-pre-commit@v1
-      - uses: open-turo/actions-release/semantic-release@v3
+        uses: open-turo/action-pre-commit@v2
+      - uses: open-turo/actions-release/semantic-release@v5
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          extra-plugins: |
+            @open-turo/semantic-release-config
