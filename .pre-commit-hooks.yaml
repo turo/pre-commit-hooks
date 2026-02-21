@@ -87,6 +87,12 @@
   entry: hooks/yaml/yaml-extension.sh
   language: script
   files: \.yml$
+- id: yaml-sort
+  name: "yaml-sort: Style formatting"
+  description: "Ensure top-level nodes are sorted in YAML files"
+  entry: hooks/yaml/yaml-sort.sh
+  language: script
+  files: \.yaml$
   ######################
 # Yalc related hook
 - id: yalc-check
