@@ -15,7 +15,7 @@ check_files() {
 }
 
 if ! check_files "$@" ; then
-    echo "Some compose files failed"
+    echo "Some YAML files failed"
 fi
 
 exit $has_error
